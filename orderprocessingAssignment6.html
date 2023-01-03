@@ -1,0 +1,48 @@
+<script>
+var itemCount, taxableAccum, nonTaxableAccum, salesTaxTotal, grandTotal;
+
+//Constants:
+	taxRate = .08;
+//Counters and accumulators
+	taxableAccum = 0;
+	nonTaxableAccum = 0;
+	itemCount = 0;
+	anotherItem = "yes";
+	
+while(anotherItem == "yes")
+  {//start loop
+  
+  //Input
+  itemCost = prompt("How much is the item?" , "");
+  itemTax = prompt("Is the item taxable? yes or no" , "");
+  
+  //Conversion
+  itemCost = parseInt(itemCost);
+  
+  //Calculations/logic:
+  itemCount = itemCount + 1
+    if (itemTax == "yes")
+      {//start tax
+      	taxableAccum = taxableAccum + itemCost;
+				alert("Total of taxable items: $" + taxableAccum);
+      }//end tax
+    else
+      {//start no tax
+      	nonTaxableAccum = nonTaxableAccum + itemCost;
+				alert("Total of non-taxable items: $" + nonTaxableAccum);
+      }// end no tax
+  
+  anotherItem = prompt("Do you have another item? yes or no" , "");
+  
+  salesTaxTotal = taxableAccum * taxRate;
+  grandTotal = taxableAccum + nonTaxableAccum + salesTaxTotal;
+  }//stop loop
+
+//Output:
+document.write("Number of items: " + itemCount);
+document.write("<br>Total of taxable items: $" + taxableAccum.toFixed(2));
+document.write("<br>Total of non-taxable items: $" + nonTaxableAccum.toFixed(2));
+document.write("<br>Total amount of sales tax charged: $" + salesTaxTotal.toFixed(2));
+document.write("<br>Grand total: $" + grandTotal.toFixed(2));
+
+</script>
